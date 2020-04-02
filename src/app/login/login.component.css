@@ -147,7 +147,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background:whitesmoke;
+  background:white;
 }
 
 
@@ -216,6 +216,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 43px 88px 93px 190px;
+  padding: 20px;
 }
 
 
