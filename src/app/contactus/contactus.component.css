@@ -362,3 +362,10 @@ textarea.input100 {
     opacity: 1;
   }
 }
+
+.invalid-input{
+
+  color: #c80000;
+  float:left;
+
+}

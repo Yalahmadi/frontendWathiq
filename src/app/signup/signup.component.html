@@ -1,47 +1,116 @@
+<div class="main">
 
-    <div class="main">
+    <section class="signup">
 
-        <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
-            <div class="container">
-                <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
-                        <h2 class="form-title">Create account</h2>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" required/>
+        <div class="container">
+            <div class="signup-content">
+                <form method="POST" id="signup-form" class="signup-form" #f="ngForm"(ngSubmit)="addUser()">
+                    <h2 class="form-title">Create account</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"
+                            [(ngModel)]="user.fullName" #fullName="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && fullName.invalid}" minlength="5" maxlength="20"
+                            required />
+                        <div *ngIf="f.submitted && fullName.invalid" class="invalid-input">
+                            <div *ngIf="fullName.errors?.required"> fullName is not valid</div>
+                            <div *ngIf="fullName.errors?.minlength"> name is less than 5 characters</div>
+                            <div *ngIf="fullName.errors?.maxlength"> name is more than 20 characters</div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" required/>
-						</div>
-						
-						<div class="form-group">
-							<input type="number" class="form-input" name="number" id="number" placeholder="Phone Number" required/>
 
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"
+                            [(ngModel)]="user.email" #email="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && email.invalid}" required emial />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="email.errors?.required"> email is not valid</div>
                         </div>
-                        <div class="form-group">
-                                <input type="number" class="form-input" name="idnum" id="idnum" placeholder="National Id" required/>
-                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                            </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Password" required/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-input" name="dob" id="dob" placeholder="date of birth"
+                            [(ngModel)]="user.dob" #dob="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && dob.invalid}" required />
+
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="dob.errors?.required"> date of birth is not valid</div>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" required/>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" class="form-input" name="number" id="number" placeholder="Phone Number"
+                            [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && phoneNumber.invalid}" required minlength="10"
+                            maxlength="15" />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="phoneNumber.errors?.required"> phonenumber is not valid</div>
+                            <div *ngIf="phoneNumber.errors?.minlength"> phoneNumber is less than 10 digt</div>
+                            <div *ngIf="phoneNumber.errors?.maxlength"> phoneNumber is more than 15 digt</div>
                         </div>
-                        <div class="form-group">
-                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term " />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-input" name="idnum" id="idnum" placeholder="National Id"
+                            [(ngModel)]="user.nationalID" #nationalID="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && nationalID.invalid}" required minlength="10"
+                            maxlength="10" />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="nationalID.errors?.required"> National Id is not valid</div>
+                            <div *ngIf="nationalID.errors?.minlength"> National Id is less than 10 digt</div>
+                            <div *ngIf="nationalID.errors?.maxlength"> National is more than 10 digt</div>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="password" id="password" placeholder="Password"
+                            [(ngModel)]="user.password" #password="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && password.invalid}" required minlength="8"
+                            maxlength="20" />
+                        <!-- <span toggle="#password" class="fas fa-eye-slash"></span> -->
+
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="password.errors?.required"> password is not valid</div>
+                            <div *ngIf="password.errors?.minlength"> password is less than 8 digt</div>
+                            <div *ngIf="password.errors?.maxlength"> password is more than 20 digt</div>
                         </div>
-                    </form>
-                    <p class="loginhere">
-                        Have already an account ? <a href="http://localhost:4200/login" class="loginhere-link">Login here</a>
-                    </p>
-                </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-input" name="re_password" id="re_password"
+                            placeholder="Repeat your password" [(ngModel)]="user.password" #password="ngModel"
+                            [ngClass]="{ 'is-invalid' : f.submitted && password.invalid}" required />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-input">
+                            <div *ngIf="password.errors?.required"> password is not valid</div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term " />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
+                            statements in <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <!-- <div class="form-group">
+                        <input type="button" name="submit" id="submit" class="form-submit" value="Sign up" (click)="addUser()"/>
+                    </div> -->
+                    <button name="submit" class="form-group" id="submit"> signup </button>
+                </form>
+                <p class="loginhere">
+                    Have already an account ? <a href="http://localhost:4200/login" class="loginhere-link">Login
+                        here</a>
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
+</div>

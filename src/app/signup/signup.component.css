@@ -1,4 +1,4 @@
-/* @extend display-flex; */
+@extend display-flex;
 display-flex, .display-flex, .display-flex-center {
   display: flex;
   display: -webkit-flex; }
@@ -147,7 +147,8 @@ body {
   -ms-border-radius: 10px;
   padding: 50px 85px; 
   float: right;
-  margin-right: auto
+  margin-right: auto;
+  display: contents;
 
 }
 
@@ -309,4 +310,3 @@ input[type=checkbox]:not(old):checked + label > span:before {
   .signup-content {
     padding: 50px 25px; } }
 
-/*# sourceMappingURL=style.css.map */
