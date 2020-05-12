@@ -13,15 +13,16 @@ import { HttpClient }from '@angular/common/http'
 })
 export class SignupComponent implements OnInit {
 
-user:UsersViewModel = {
+model:UsersViewModel = {
     
-  userID:null,
-  fullName:'',
-  dob:'',
-  phoneNumber:'',
+  userID:0,
+  fullName:null,
+  dob:null,
+  phoneNumber:null,
   email: null,
-  nationalID: '',
-  password:'',
+  nationalID:null,
+  password:null,
+  
 }
   constructor( private http: HttpClient,
     private router: Router) { }
@@ -31,17 +32,18 @@ user:UsersViewModel = {
 
   AddUser():void{
     let url = "http://localhost:8080/Users/AddInd";
-    this.http.post(url ,this.user).subscribe(
+    this.http.post(url ,this.model , { responseType: 'text'}).subscribe(
 
       res=>{
-        alert("WORKING");
+        console.log("post completed!");
+      
+        this.router.navigate(['/login'])
       },
-      err=>{
-        alert("not working ")
+      err=>{(
+        alert("Error")
+      )
       }
-
     )
-   
   }
 
 }
@@ -49,11 +51,12 @@ user:UsersViewModel = {
 export interface UsersViewModel {
   userID:number;
   fullName:string;
-  dob:string;
+  dob:String,
   phoneNumber:string;
   email: number;
-  nationalID: string;
+  nationalID: number;
   password:string;
+  // enable:number;
  
 }
 

@@ -1,14 +1,23 @@
+<!-- <h2>SGIN UP</h2>
+<form action="/action_page.php">
+  <label for="op">Choose an account:</label>
+  <select id="cars" name="cars">
+    <option value="volvo">ORG</option>
+    <option value="saab">IND</option>
+  </select>
+  <button>click </button> -->
+</form>
 <div class="main">
 
     <section class="signup">
 
         <div class="container">
             <div class="signup-content">
-                <form method="POST" id="signup-form" class="signup-form" #f="ngForm"(ngSubmit)="AddUser()" method="post">
+                <form id="signup-form" class="signup-form" #f="ngForm" (ngSubmit)="AddUser()" method="post">
                     <h2 class="form-title">Create account</h2>
                     <div class="form-group">
                         <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"
-                            [(ngModel)]="user.fullName" #fullName="ngModel"
+                            [(ngModel)]="model.fullName" #fullName="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && fullName.invalid}" minlength="5" maxlength="20"
                             required />
                         <div *ngIf="f.submitted && fullName.invalid" class="invalid-input">
@@ -16,13 +25,10 @@
                             <div *ngIf="fullName.errors?.minlength"> name is less than 5 characters</div>
                             <div *ngIf="fullName.errors?.maxlength"> name is more than 20 characters</div>
                         </div>
-
-
-
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"
-                            [(ngModel)]="user.email" #email="ngModel"
+                            [(ngModel)]="model.email" #email="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && email.invalid}" required emial />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-input">
                             <div *ngIf="email.errors?.required"> email is not valid</div>
@@ -32,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-input" name="dob" id="dob" placeholder="date of birth"
-                            [(ngModel)]="user.dob" #dob="ngModel"
+                            [(ngModel)]="model.dob" #dob="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && dob.invalid}" required />
 
                         <div *ngIf="f.submitted && email.invalid" class="invalid-input">
@@ -44,7 +50,7 @@
 
                     <div class="form-group">
                         <input type="number" class="form-input" name="number" id="number" placeholder="Phone Number"
-                            [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
+                            [(ngModel)]="model.phoneNumber" #phoneNumber="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && phoneNumber.invalid}" required minlength="10"
                             maxlength="15" />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-input">
@@ -57,7 +63,7 @@
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-input" name="idnum" id="idnum" placeholder="National Id"
-                            [(ngModel)]="user.nationalID" #nationalID="ngModel"
+                            [(ngModel)]="model.nationalID" #nationalID="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && nationalID.invalid}" required minlength="10"
                             maxlength="10" />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-input">
@@ -71,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-input" name="password" id="password" placeholder="Password"
-                            [(ngModel)]="user.password" #password="ngModel"
+                            [(ngModel)]="model.password" #password="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && password.invalid}" required minlength="8"
                             maxlength="20" />
                         <!-- <span toggle="#password" class="fas fa-eye-slash"></span> -->
@@ -86,7 +92,7 @@
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-input" name="re_password" id="re_password"
-                            placeholder="Repeat your password" [(ngModel)]="user.password" #password="ngModel"
+                            placeholder="Repeat your password" [(ngModel)]="model.password" #password="ngModel"
                             [ngClass]="{ 'is-invalid' : f.submitted && password.invalid}" required />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-input">
                             <div *ngIf="password.errors?.required"> password is not valid</div>
