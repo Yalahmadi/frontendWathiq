@@ -11,38 +11,40 @@ import { Observable } from 'rxjs';
 export class UsereSrvice {
 
 
-  private AddIndUrl= "http://localhost:8080/Users/AddInd";
-  private GetAllUserUrl= "http://localhost:8080/Users/GetAllUsers";
-  private GetUserByIdUrl="http://localhost:8080/Users/GetUser/";
-  private DeleteUserUrl="http://localhost:8080/Users/DeleteUser/";
+  // private AddIndUrl= "http://localhost:8080/Users/AddInd";
+  // private GetAllUserUrl= "http://localhost:8080/Users/GetAllUsers";
+  // private GetUserByIdUrl="http://localhost:8080/Users/GetUser/";
+  // private DeleteUserUrl="http://localhost:8080/Users/DeleteUser/";
  
 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
 
 
-  // getAllUsers() {
+  // // getAllUsers() {
+  // //   return this.http.get<Users[]>(this.GetAllUserUrl);
+  // // };
+
+  // // addUser(users): Observable<Users> {
+  // //   return this.http.post<Users>(this.AddIndUrl, users);
+  // // };
+
+  // addUser(user: Users) {
+  //   return this.http.post(this.AddIndUrl,user);
+  // };
+
+  // getAllUsers(): Observable<Users[]> {
   //   return this.http.get<Users[]>(this.GetAllUserUrl);
+
+    
   // };
 
-  // addUser(users): Observable<Users> {
-  //   return this.http.post<Users>(this.AddIndUrl, users);
+  // getUserByID(userID: number): Observable<Users> {
+  //   return this.http.get<Users>(this.GetUserByIdUrl + userID)
   // };
 
-  addUser(user: Users) {
-    return this.http.post(this.AddIndUrl,user);
-  };
-
-  getAllUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(this.GetAllUserUrl);
-  };
-
-  getUserByID(userID: number): Observable<Users> {
-    return this.http.get<Users>(this.GetUserByIdUrl + userID)
-  };
-
-  deleteUser(userID: number): Observable<Users> {
-    return this.http.delete<Users>(this.DeleteUserUrl + userID);
-  }
+  // deleteUser(userID: number): Observable<Users> {
+  //   return this.http.delete<Users>(this.DeleteUserUrl + userID);
+  // }
 
 }
 

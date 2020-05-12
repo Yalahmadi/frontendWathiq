@@ -9,9 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule} from "@angular/forms";
 import { UsereSrvice } from './service/user.service';
-
-
-
+import { RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +24,8 @@ import { UsereSrvice } from './service/user.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
     
   ],
   providers: [ UsereSrvice ],

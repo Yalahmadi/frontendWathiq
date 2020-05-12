@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import{Users} from '../model/Users';
 import {UsereSrvice}from'../service/user.service';
 import {Authority}from '../authority/authority';
+import { RouterLink, ROUTES, Router } from '@angular/router';
+import { HttpClient }from '@angular/common/http'
+
 
 @Component({
   selector: 'app-signup',
@@ -10,30 +13,53 @@ import {Authority}from '../authority/authority';
 })
 export class SignupComponent implements OnInit {
 
-  user: Users = {
-    userId: 0,
-    fullName: null,
-    nationalID: null,
-    email: null,
-    phoneNumber: null,
-    password: null,
-    dob: null,
-    enabled: 1,
-    authName: new Authority(1, "ROLES_ADMIN"),
-  }
-
-  constructor( private userService: UsereSrvice) { }
+user:UsersViewModel = {
+    
+  userID:null,
+  fullName:'',
+  dob:'',
+  phoneNumber:'',
+  email: null,
+  nationalID: '',
+  password:'',
+}
+  constructor( private http: HttpClient,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
-  
-  addUser(): void {
-    this.userService.addUser(this.user).subscribe(
-      res => {
-        location.reload();
+
+  AddUser():void{
+    let url = "http://localhost:8080/Users/AddInd";
+    this.http.post(url ,this.user).subscribe(
+
+      res=>{
+        alert("WORKING");
+      },
+      err=>{
+        alert("not working ")
       }
+
     )
+   
   }
 
 }
+
+export interface UsersViewModel {
+  userID:number;
+  fullName:string;
+  dob:string;
+  phoneNumber:string;
+  email: number;
+  nationalID: string;
+  password:string;
+ 
+}
+
+
+
+
+
+
 
