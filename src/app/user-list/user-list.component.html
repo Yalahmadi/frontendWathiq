@@ -1,1 +1,25 @@
-<p>user-list works!</p>
+<div class="container-fluid">
+    <h1 class="display-1" style="text-align: center;">All Registred Users</h1>
+    <table class="table table-dark table-striped mt-4">
+        <thead>
+            <tr>
+                <th>user ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                 <th>Phone Number</th>
+                 <!-- <th>Delet User</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of user">
+                <td>{{user.userID}}</td>
+                <td>{{user.fullName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.dob | date: 'MM-dd-yyyy'}}</td>
+                <td>{{user.phoneNumber}}</td>
+               <!-- <button (submit)="deleteUser()"><td style="color: tomato;">Delete</td> </button>  -->
+            </tr>
+        </tbody>
+    </table>
+</div>

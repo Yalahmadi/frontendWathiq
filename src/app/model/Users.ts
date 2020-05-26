@@ -1,4 +1,5 @@
 import {Authority} from '../authority/authority';
+import{Organization}from '../model/organization';
 export class Users {
     userId: number;
     fullName: string;
@@ -7,7 +8,8 @@ export class Users {
     phoneNumber:string
     password: string;
     dob: Date;
-    // enabled: number;
-    // authdata?: string;
-    // authName: Authority;
+    enabled: number;
+     authdata?: string;
+     authName: Authority;
+     userOrga: Organization;
 }

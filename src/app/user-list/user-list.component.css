@@ -1,0 +1,30 @@
+/* .container-fluid{
+
+display: contents;
+width: 100%;
+padding: 40px;
+border: solid;
+
+} */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+  
+  th {
+    background-color: teal;
+    color: white;
+  }
+  
+  th,
+  td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  h2 {
+    color: #4287f5;
+  }

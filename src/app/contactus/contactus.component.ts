@@ -17,7 +17,14 @@ yourMassage:''
   }
 
   sendContactus():void{
-err=>{
+
+    res=>{
+      console.log("compleated");  
+  alert("اشتغل");
+
+
+    }
+  err=>{
   alert(" an error has occurred while sending the massage");
 }
  }

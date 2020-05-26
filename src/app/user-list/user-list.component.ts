@@ -13,17 +13,34 @@ export class UserListComponent implements OnInit {
   constructor( private userservice : UsereSrvice) { }
 
   ngOnInit(): void {
-  // this.getAllUsers();
+   this.getAllUsers();
 
   }
 
-//  getAllUsers(){
-//   this.userservice.getAllUsers().subscribe(
+getAllUsers(){
+ this.userservice.getAllUsers().subscribe(
 
-//     result=>{
-//       this.user=result;
-
-//     })
+    result=>{
+      this.user=result;
+      console.log("successfully");
+      alert("successfully")
+    },
+      
+      err=>{(
+        alert("Error")
+      )
+      }
+      
+      
+      )
  }
 
-// }
+ deleteUser(user: Users) {
+  this.userservice.deleteUser(user.userId).subscribe(
+    result => {
+      let index = this.user.indexOf(user);
+      this.user.splice(index, 1);
+    }
+  )
+}
+ }

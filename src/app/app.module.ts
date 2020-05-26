@@ -7,9 +7,14 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { FormsModule} from "@angular/forms";
+import { FormsModule , ReactiveFormsModule } from "@angular/forms";
 import { UsereSrvice } from './service/user.service';
 import { RouterModule} from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UploadCertifcateComponent } from './upload-certifcate/upload-certifcate.component';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +23,20 @@ import { RouterModule} from '@angular/router';
     AboutusComponent,
     ContactusComponent,
     NavbarComponent,
-    UserListComponent
+    UserListComponent,
+    HomepageComponent,
+    LogoutComponent,
+    ProfileComponent,
+    UploadCertifcateComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
     
   ],
   providers: [ UsereSrvice ],
